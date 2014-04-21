@@ -44,5 +44,6 @@ RSpec.configure do |config|
     c.hook_into :webmock
     c.configure_rspec_metadata!
     c.filter_sensitive_data('<twilio account sid>') { ENV['TWILIO_ACCOUNT_SID'] } # example for filtering data
+    c.filter_sensitive_data('<twilio auth token>') { ENV['TWILIO_AUTH_TOKEN'] }
   end
 end
