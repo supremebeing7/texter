@@ -5,15 +5,20 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    @contact = Contact.find_by_phone(params[:phone]) if params[:phone]
+    if params[:phone]
+      @contact = Contact.find_by_phone(params[:phone])
+    else
+      @contact = Contact.new
+    end
   end
 
   def create
     @message = Message.new(message_params)
+    @contact = Contact.find_by_phone(params[:message][:to])
     if @message.save
       respond_to do |format|
-        format.js { redirect_to messages_path, notice: "Your messages was sent!" }
-        format.html
+        format.html { redirect_to messages_path, notice: "Your messages was sent!" }
+        format.js
       end
     else
       render 'new'
