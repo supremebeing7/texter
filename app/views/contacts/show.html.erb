@@ -2,7 +2,7 @@
 
 <h3>Phone: <%= @contact.phone %></h3>
 
-<h4><%= link_to 'New Text Message', new_message_path(@contact.phone), id: "new-text-link" %></h4>
+<h4><%= link_to 'New Text Message', new_message_path(phone: @contact.phone), id: "new-text-link", remote: true %></h4>
 
 <hr>
 

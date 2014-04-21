@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    @contact = Contact.find_by_phone(params[:format]) if params[:format]
+    @contact = Contact.find_by_phone(params[:phone]) if params[:phone]
   end
 
   def create
