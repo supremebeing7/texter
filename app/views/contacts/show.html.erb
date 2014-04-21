@@ -1,0 +1,9 @@
+<h1><%= @contact.name %></h1>
+
+<h3>Phone: <%= @contact.phone %></h3>
+
+<h4><%= link_to 'New Text Message', new_message_path %></h4>
+
+<hr>
+
+<h4>Back to all <%= link_to 'Contacts', contacts_path %></h4>
