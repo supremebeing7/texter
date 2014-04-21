@@ -5,5 +5,6 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password "password"
     password_confirmation { |u| u.password }
+    phone "15005550006"
   end
 end

@@ -5,13 +5,16 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    @contact = Contact.find_by_phone(params[:format]) if params[:format]
   end
 
   def create
     @message = Message.new(message_params)
     if @message.save
-      flash[:notice] = "Your message was sent!"
-      redirect_to messages_path
+      respond_to do |format|
+        format.js { redirect_to messages_path, notice: "Your messages was sent!" }
+        format.html
+      end
     else
       render 'new'
     end
