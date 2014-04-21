@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new
+    @message = Message.new(message_params)
     if @message.save
       flash[:notice] = "Your message was sent!"
       redirect_to messages_path
