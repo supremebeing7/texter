@@ -2,13 +2,18 @@
 
 <div id="new-text-form">
   <%= form_for @message, remote: true do |f| %>
-    <%= f.label :to %>
-    <%= f.text_field :to, value: @contact.phone %>
-    <%= f.label :from %>
-    <%= f.text_field :from, value: current_user.phone %>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit %>
+    <% if @contact %>
+        <%= f.hidden_field :to, value: @contact.phone %>
+        <%= f.hidden_field :from, value: current_user.phone %>
+    <% else %>
+        <%= f.label :to %>
+        <%= f.text_field :to, value: @contact.phone %>
+        <%= f.label :from %>
+        <%= f.text_field :from, value: current_user.phone %>
+    <% end %>
+
+        <%= f.text_field :body %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit %>
   <% end %>
 </div>
