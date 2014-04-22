@@ -1,1 +1,12 @@
 <h1><%= @user.email %></h1>
+
+<%= render 'messages/form' %>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= link_to message.body, message_path(message) %> - Sent: <%= message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>
+  <% end %>
+  <span id="message-list"></span>
+</ul>
+
+<p><%= link_to "edit profile", edit_user_registration_path(current_user) %></p>

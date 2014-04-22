@@ -4,16 +4,16 @@
   <%= form_for @message, remote: true do |f| %>
     <% if @contact %>
         <%= f.hidden_field :to, value: @contact.phone %>
-        <%= f.hidden_field :from, value: current_user.phone %>
     <% else %>
-        <%= f.label :to %>
-        <%= f.text_field :to, value: @contact.phone %>
-        <%= f.label :from %>
-        <%= f.text_field :from, value: current_user.phone %>
+      <div class="form-group">
+        <%= f.text_field :to, placeholder: "Send to..." %>
+      </div>
     <% end %>
-
-        <%= f.text_field :body %>
+      <div class="form-group">
+        <%= f.text_field :body, placeholder: "Enter your text here" %>
+      </div>
         <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :from, value: current_user.phone %>
         <%= f.submit %>
   <% end %>
 </div>

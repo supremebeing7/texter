@@ -2,7 +2,7 @@
 
 <h3>Phone: <%= @contact.phone %></h3>
 
-<h4><%= link_to 'New Text Message', new_message_path(phone: @contact.phone), id: "new-text-link", remote: true %></h4>
+<%= render 'messages/form' %>
 
 <ul>
   <% @messages.each do |message| %>

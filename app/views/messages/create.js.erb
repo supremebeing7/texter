@@ -1,3 +1,1 @@
-$('#new-text-form').remove();
-$('#new-text-link').show();
 $('#message-list').append('<li><%= link_to @message.body, message_path(@message) %> - Sent: <%= @message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>')
