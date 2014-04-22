@@ -1,3 +1,20 @@
 .white-text {
   color: white;
 }
+
+#main {
+  text-align: center;
+  background:rgba(225, 225, 225, 0.7);
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+body#welcome {
+  background: url(http://www.bryanterrill.com/wp-content/uploads/2013/10/Texting-while-driving.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

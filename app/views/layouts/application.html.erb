@@ -8,9 +8,12 @@
 </head>
 
 
-
-<body>
-  <div class="navbar navbar-inverse">
+<% if !user_signed_in? %>
+  <body id="welcome">
+<% else %>
+  <body>
+<% end %>
+    <div class="navbar navbar-inverse">
       <a class="navbar-brand" href="/">Texter App</a>
       <% if user_signed_in? %>
         <%= link_to "Log Out", destroy_user_session_path, method: "delete", class: "navbar-text pull-right" %>
@@ -26,10 +29,12 @@
       <% end %>
       </ul>
 
-  </div>
-  <div class="container">
-    <%= flash[:notice] %>
-    <%= yield %>
-  </div>
+    </div>
+    <div id="main">
+      <div class="container">
+        <%= flash[:notice] %>
+        <%= yield %>
+      </div>
+    </div>
 </body>
 </html>
