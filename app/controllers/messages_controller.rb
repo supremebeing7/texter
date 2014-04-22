@@ -13,16 +13,33 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
     @contact = Contact.find_by_phone(params[:message][:to])
-    if @message.save
-      respond_to do |format|
-        format.html { redirect_to messages_path, notice: "Your messages was sent!" }
-        format.js
-      end
-    else
-      render 'new'
+    @messages = []
+    params[:to].each do |phone|
+      @message = Message.new(message_params)
+      @message.to = phone
+      @messages << @message
     end
+    @messages.each { |message| message.save }
+    respond_to do |format|
+      format.html { redirect_to messages_path, notice: "Message was sent!" }
+      format.js
+    end
+
+# if @messages.length > 1
+#       @messages.each { |message| message.save }
+#       respond_to do |format|
+#         format.js
+#       end
+#       redirect_to messages_path, notice: "Messages sent!"
+#     else
+#       @message.save
+#       respond_to do |format|
+#         format.html { redirect_to messages_path, notice: "Message was sent!" }
+#         format.js
+#       end
+#     end
+
   end
 
   def show
@@ -34,4 +51,6 @@ private
   def message_params
     params.require(:message).permit(:to, :from, :body, :user_id)
   end
+
+
 end

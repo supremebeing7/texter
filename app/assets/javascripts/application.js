@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $("#new-recipient").click(function() {
+    $("#multiple-recipients").append('<div class="form-group">' +
+                                        '<input name="to[]" placeholder="Recipients number"/>' +
+                                      '</div>');
+  });
+});

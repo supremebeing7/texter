@@ -1,1 +1,7 @@
-$('#message-list').append('<li><%= link_to @message.body, message_path(@message) %> - Sent: <%= @message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>')
+$('#message-list').append('<% if @messages.length > 1 %>' +
+                            '<% @messages.each do |message| %>' +
+                              '<li><%= link_to message.body, message_path(message) %> - Sent: <%= message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>' +
+                            '<% end %>' +
+                          '<% else %>' +
+                            '<li><%= link_to @message.body, message_path(@message) %> - Sent: <%= @message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>' +
+                          '<% end %>')
