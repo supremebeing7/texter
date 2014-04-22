@@ -8,6 +8,7 @@
     <%= f.text_field :from, value: current_user.phone %>
     <%= f.label :body %>
     <%= f.text_field :body %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit %>
   <% end %>
 </div>

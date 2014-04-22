@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    @messages = Message.where(:to => @contact.phone)
+    @messages = Message.where(:to => @contact.phone, user_id: current_user.id)
   end
 
 private
