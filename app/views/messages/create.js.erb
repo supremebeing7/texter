@@ -4,4 +4,8 @@ $('#message-list').append('<% if @messages.length > 1 %>' +
                             '<% end %>' +
                           '<% else %>' +
                             '<li><%= link_to @message.body, message_path(@message) %> - Sent: <%= @message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>' +
-                          '<% end %>')
+                          '<% end %>');
+$('#new_message').each(function(){
+  this.reset();   //Here form fields will be cleared.
+});
+
