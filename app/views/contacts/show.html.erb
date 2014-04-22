@@ -3,8 +3,11 @@
 <h3>Phone: <%= @contact.phone %></h3>
 
 <%= render 'messages/form' %>
-
+<hr>
 <ul>
+  <h3>
+    Text History
+  </h3>
   <% @messages.each do |message| %>
     <li><%= link_to message.body, message_path(message) %> - Sent: <%= message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>
   <% end %>

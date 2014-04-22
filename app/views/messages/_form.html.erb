@@ -4,14 +4,15 @@
   <%= form_for @message, remote: true do |f| %>
     <% if @contact %>
         <%= f.hidden_field :to, value: @contact.phone %>
+        <%= f.text_field :body, placeholder: "New text to #{@contact.name}" %>
     <% else %>
       <div class="form-group">
-        <%= f.text_field :to, placeholder: "Send to..." %>
+        <%= f.text_field :to, placeholder: "Recipient's Number" %>
       </div>
-    <% end %>
       <div class="form-group">
         <%= f.text_field :body, placeholder: "Enter your text here" %>
       </div>
+    <% end %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :from, value: current_user.phone %>
         <%= f.submit %>

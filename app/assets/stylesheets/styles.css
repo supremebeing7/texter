@@ -17,3 +17,13 @@ body#welcome {
   -o-background-size: cover;
   background-size: cover;
 }
+
+#contacts-box {
+  background:rgba(225, 225, 225, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
