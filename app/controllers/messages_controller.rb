@@ -16,9 +16,11 @@ class MessagesController < ApplicationController
     @contact = Contact.find_by_phone(params[:message][:to])
     @messages = []
     params[:to].each do |phone|
-      @message = Message.new(message_params)
-      @message.to = phone
-      @messages << @message
+      if phone != ""
+        @message = Message.new(message_params)
+        @message.to = phone
+        @messages << @message
+      end
     end
     @messages.each { |message| message.save }
     respond_to do |format|

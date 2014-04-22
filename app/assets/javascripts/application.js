@@ -18,7 +18,7 @@
 $(document).ready(function() {
   $("#new-recipient").click(function() {
     $("#multiple-recipients").append('<div class="form-group">' +
-                                        '<input name="to[]" placeholder="Recipients number"/>' +
+                                        '<input name="to[]" class="to-fields" placeholder="Recipients number"/>' +
                                       '</div>');
   });
 });

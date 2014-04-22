@@ -5,7 +5,11 @@ $('#message-list').append('<% if @messages.length > 1 %>' +
                           '<% else %>' +
                             '<li><%= link_to @message.body, message_path(@message) %> - Sent: <%= @message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>' +
                           '<% end %>');
+
 $('#new_message').each(function(){
   this.reset();   //Here form fields will be cleared.
 });
-
+$('.to-fields').hide();
+$("#multiple-recipients").append('<div class="form-group">' +
+                                        '<input name="to[]" placeholder="Recipients number"/>' +
+                                      '</div>');
