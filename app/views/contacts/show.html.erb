@@ -8,6 +8,7 @@
   <% @messages.each do |message| %>
     <li><%= link_to message.body, message_path(message) %> - Sent: <%= message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>
   <% end %>
+  <span id="message-list"></span>
 </ul>
 <hr>
 
