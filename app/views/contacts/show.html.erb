@@ -4,6 +4,11 @@
 
 <h4><%= link_to 'New Text Message', new_message_path(phone: @contact.phone), id: "new-text-link", remote: true %></h4>
 
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= link_to message.body, message_path(message) %> - Sent: <%= message.created_at.strftime("%m/%d/%Y %l:%M %p") %></li>
+  <% end %>
+</ul>
 <hr>
 
 <h4>Back to all <%= link_to 'Contacts', contacts_path %></h4>

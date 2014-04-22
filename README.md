@@ -10,5 +10,4 @@ TEXTER APP
 
 ## Day 2 Fixes:
 
-1. Show all current_users's messages to contact_user on the contact's show page
-2. Refactor the Contact list to just show numbers. Use ajax such that when you press their name, the text body field shows up. The to and from fields should be hidden.
+1. Refactor the Contact list to just show numbers. Use ajax such that when you press their name, the text body field shows up. The to and from fields should be hidden.
